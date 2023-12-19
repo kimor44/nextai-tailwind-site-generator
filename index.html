@@ -8,9 +8,31 @@
     <title>Tailwind Generator site</title>
   </head>
   <body>
-    <div id="app"></div>
-    <div class="bg-red-400">
-      <p>Coucou les gens</p>
+    <div id="app" class="h-screen flex flex-col justify-end">
+      <div class="container-form flex justify-center">
+        <form
+          id="generator"
+          action="#"
+          class="flex flex-row justify-between place-items-center gap-7 bg-slate-300 rounded-xl p-2"
+        >
+          <textarea
+            name="generator__textarea"
+            id="generator__textarea"
+            class="border-2 border-gray-300 p-2 rounded-xl resize-none text-gray-400 text-xl shadow-xl hover:border-gray-400 transition-all"
+            placeholder="A beautiful landing page"
+            cols="30"
+          >
+          </textarea>
+
+          <button
+            class="generator__submit px-8 py-4 bg-blue-700 text-slate-50 rounded-xl text-xl font-bold shadow-xl hover:bg-blue-800 transition-all"
+            type="submit"
+          >
+            Generate
+          </button>
+        </form>
+      </div>
+      <div class="h-8"></div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
