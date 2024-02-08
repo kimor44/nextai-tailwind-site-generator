@@ -1,7 +1,7 @@
 import { openai } from "./lib/openAi/openAiKey";
+import { updateCodeHighlight } from "./lib/highlightjs/updateCodeHighlight";
 
 const iframe = document.querySelector("#iframe-generated") as HTMLIFrameElement;
-
 const input = document.querySelector("#generator") as HTMLInputElement;
 input.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -45,11 +45,13 @@ const createUpdateIframe = () => {
   return (code: string) => {
     if (Date.now() - date > 1000) {
       updateIframe(code);
+      updateCodeHighlight(code);
       date = Date.now();
     } else {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         updateIframe(code);
+        updateCodeHighlight(code);
         date = Date.now();
       }, 1000);
     }
