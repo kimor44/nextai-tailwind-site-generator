@@ -1,6 +1,7 @@
 import { openai } from "./lib/openAi/openAiKey";
 import { updateCodeHighlight } from "./lib/highlightjs/updateCodeHighlight";
 import { appendCopyButton } from "./lib/highlightjs/appendCopyButton";
+import { promptSysteme } from "./lib/openAi/promptSysteme";
 
 const iframe = document.querySelector("#iframe-generated") as HTMLIFrameElement;
 const input = document.querySelector("#generator") as HTMLInputElement;
@@ -12,16 +13,7 @@ input.addEventListener("submit", async (event) => {
     messages: [
       {
         role: "system",
-        content: `Tu crées des sites web.
-      Tu es un développeur web.
-      Ta tâche est de créer un site web avec tailwindcss.
-      Tu ne renvoies que du code HTML.
-      Tu ne mets rien avant et après le code HTML.
-      Tu ne mets pas de commentaire dans le code HTML.
-      Tu ne mets pas de Markdown dans le code HTML.
-      Tu ne mets pas de backticks dans le code HTML. (avant et après le code HTML)
-      Si le prompt ne te demande pas un élément d'un site web, renvoie une erreure dans une balise "div" avec un fond rouge clair et le texte en rouge foncé et gras.
-      `,
+        content: promptSysteme,
       },
       { role: "user", content: prompt },
     ],
