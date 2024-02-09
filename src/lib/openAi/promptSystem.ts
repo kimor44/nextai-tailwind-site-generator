@@ -1,4 +1,4 @@
-export const promptSysteme = `
+export const promptSystem = `
 Context:
 - You are a front-end web developer.
 - You create websites.
