@@ -1,5 +1,6 @@
 import { openai } from "./lib/openAi/openAiKey";
 import { updateCodeHighlight } from "./lib/highlightjs/updateCodeHighlight";
+import { appendCopyButton } from "./lib/highlightjs/appendCopyButton";
 
 const iframe = document.querySelector("#iframe-generated") as HTMLIFrameElement;
 const input = document.querySelector("#generator") as HTMLInputElement;
@@ -32,10 +33,12 @@ input.addEventListener("submit", async (event) => {
   const onNewChunk = createUpdateIframe();
 
   for await (const chunk of chatCompletion) {
-    const newChild = chunk.choices[0]?.delta?.content || "";
-    code += newChild;
+    const newChunk = chunk.choices[0]?.delta?.content || "";
+    code += newChunk;
     onNewChunk(code);
   }
+
+  appendCopyButton(code);
 });
 
 const createUpdateIframe = () => {

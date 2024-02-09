@@ -8,28 +8,30 @@ pre.classList.add(
   "overflow-hidden",
   "max-w-full",
   "tab-size",
-  "h-full"
+  "h-full",
+  "bg-[#0d1117]",
+  "pt-4"
 );
 export const highlightCode = document.createElement("code") as HTMLElement;
 highlightCode.classList.add("hljs");
+export const toolBox = document.createElement("div") as HTMLElement;
+toolBox.classList.add("flex", "absolute", "top-0", "right-0", "gap-2");
 const small = document.createElement("small") as HTMLElement;
 small.classList.add(
+  "rounded-bl-md",
+  "px-2",
+  "py-1",
   "bg-black/30",
-  "absolute",
-  "top-0",
-  "right-0",
   "uppercase",
   "font-bold",
   "text-xs",
-  "text-stone-50",
-  "rounded-bl-md",
-  "px-2",
-  "py-1"
+  "text-stone-50"
 );
 const span = document.createElement("span") as HTMLElement;
 span.classList.add("sr-only");
 span.textContent = "Language:";
 small.appendChild(span);
 small.appendChild(document.createTextNode("HTML"));
+toolBox.appendChild(small);
 pre.appendChild(highlightCode);
-pre.appendChild(small);
+pre.appendChild(toolBox);
