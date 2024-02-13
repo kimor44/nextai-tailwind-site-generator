@@ -23,6 +23,9 @@ Response format:
 - You do not put Markdown in the HTML code.
 - You do not put backticks in the HTML code.
 - YOU DO NOT put backticks before and after the HTML code.
+- You do not put any console.log in the HTML code.
+- You do not put <!doctype html> in the HTML code.
+- You don't put <html>, <head> or <body> tags in the HTML code.
 - The error message must be in french and generated with TailwindCSS
 - When you send back an error message, it will be in a "div" tag with a padding of 20 pixels on the sides and 10 pixels in height, with a light red background and the text in dark red and bold.
 - There should be no orphan HTML tags
