@@ -9,6 +9,13 @@ input.addEventListener("submit", async (event) => {
   const formData = new FormData(event.currentTarget as HTMLFormElement);
   const prompt = formData.get("generator__textarea") as string;
   const chatCompletion = await openai.chat.completions.create({
+    model: "gpt-4-0125-preview",
+    stream: true,
+    temperature: 1,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    max_tokens: 1500,
     messages: [
       {
         role: "system",
@@ -16,8 +23,6 @@ input.addEventListener("submit", async (event) => {
       },
       { role: "user", content: prompt },
     ],
-    model: "gpt-4-0125-preview",
-    stream: true,
   });
 
   let code = "";
