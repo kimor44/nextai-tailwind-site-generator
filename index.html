@@ -8,13 +8,15 @@
     <title>Tailwind Generator site</title>
   </head>
   <body>
-    <div id="app" class="h-screen flex flex-col justify-end">
-      <iframe
-        id="iframe-generated"
-        class="container mx-auto w-full md:w-3/4 h-full"
-      ></iframe>
-      <div class="code-box container mx-auto w-full md:w-3/4"></div>
-      <div class="container-form flex justify-center">
+    <div id="app" class="flex flex-col justify-start h-screen">
+      <div class="min-h-[70%]">
+        <iframe
+          id="iframe-generated"
+          class="container mx-auto w-full md:w-3/4 h-full"
+        ></iframe>
+      </div>
+      <div class="code-box container mx-auto w-full md:w-3/4 h-fit"></div>
+      <div class="container-form fixed inset-x-0 bottom-4 flex justify-center">
         <form
           id="generator"
           action="#"
@@ -36,7 +38,6 @@
           </button>
         </form>
       </div>
-      <div class="h-8"></div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
