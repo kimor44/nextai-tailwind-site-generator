@@ -2,10 +2,15 @@ import { openai } from "./lib/openAi/openAiKey";
 import { appendCopyButton } from "./lib/highlightjs/appendCopyButton";
 import { promptSystem } from "./lib/openAi/promptSystem";
 import { createUpdateIframe } from "./lib/iframe/createUpdateIframe";
+import { renderMessages } from "./lib/chat/renderMessages";
 
 const input = document.querySelector("#generator") as HTMLInputElement;
+const messages = [] as string[];
 input.addEventListener("submit", async (event) => {
   event.preventDefault();
+  const fieldSet = document.querySelector(
+    "#generator-wrapper"
+  ) as HTMLFieldSetElement;
   const formData = new FormData(event.currentTarget as HTMLFormElement);
   const prompt = formData.get("generator__textarea") as string;
   const chatCompletion = await openai.chat.completions.create({
@@ -29,10 +34,18 @@ input.addEventListener("submit", async (event) => {
   const onNewChunk = createUpdateIframe();
 
   for await (const chunk of chatCompletion) {
+    fieldSet.disabled = true;
+
     const newChunk = chunk.choices[0]?.delta?.content || "";
     code += newChunk;
     onNewChunk(code);
   }
+
+  fieldSet.disabled = false;
+
+  messages.push(prompt);
+
+  renderMessages(messages);
 
   appendCopyButton(code);
 });
