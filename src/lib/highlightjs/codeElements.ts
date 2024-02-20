@@ -1,4 +1,7 @@
+// Code Highlighting Elements
 export const codeBox = document.querySelector(".code-box") as HTMLElement;
+
+// Pre tag building to insert the highlight code & toolBox
 export const pre = document.createElement("pre") as HTMLPreElement;
 pre.classList.add(
   "theme-github-dark",
@@ -12,10 +15,40 @@ pre.classList.add(
   "bg-[#0d1117]",
   "pt-4"
 );
+
+// Highlight code building to insert in the pre tag
 export const highlightCode = document.createElement("code") as HTMLElement;
 highlightCode.classList.add("hljs");
+
+// ToolBox building to append small and seeButton and insert in the pre tag
 export const toolBox = document.createElement("div") as HTMLElement;
 toolBox.classList.add("flex", "absolute", "top-0", "right-0", "gap-2");
+
+// See button building to toggle code visibility
+const seeButton = document.createElement("button") as HTMLButtonElement;
+seeButton.classList.add(
+  "rounded-br-md",
+  "px-2",
+  "py-1",
+  "bg-black/30",
+  "uppercase",
+  "font-bold",
+  "text-xs",
+  "text-stone-50",
+  "see-button"
+);
+seeButton.innerHTML = "See code";
+seeButton.addEventListener("click", () => {
+  codeBox.classList.toggle("z-10");
+  seeButton.innerText = codeBox.classList.contains("z-10")
+    ? "Hide code"
+    : "See code";
+});
+
+// Append seeButton to toolBox
+toolBox.appendChild(seeButton);
+
+// Small tag building to display the language
 const small = document.createElement("small") as HTMLElement;
 small.classList.add(
   "rounded-bl-md",
@@ -29,31 +62,13 @@ small.classList.add(
 );
 const span = document.createElement("span") as HTMLElement;
 span.classList.add("sr-only");
-span.textContent = "Language:";
+span.innerText = "Language:";
 small.appendChild(span);
 small.appendChild(document.createTextNode("HTML"));
+
+// Append small tag to toolBox
 toolBox.appendChild(small);
+
+// Append highlightCode & toolbox to pre parent
 pre.appendChild(highlightCode);
 pre.appendChild(toolBox);
-
-const seeButton = document.createElement("button") as HTMLButtonElement;
-seeButton.classList.add(
-  "rounded-br-md",
-  "px-2",
-  "py-1",
-  "bg-black/30",
-  "uppercase",
-  "font-bold",
-  "text-xs",
-  "text-stone-50",
-  "see-button"
-);
-
-seeButton.innerHTML = "See code";
-seeButton.addEventListener("click", () => {
-  codeBox.classList.toggle("z-10");
-  seeButton.innerText = codeBox.classList.contains("z-10")
-    ? "Hide code"
-    : "See code";
-});
-toolBox.appendChild(seeButton);
