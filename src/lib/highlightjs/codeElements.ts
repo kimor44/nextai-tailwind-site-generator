@@ -35,3 +35,25 @@ small.appendChild(document.createTextNode("HTML"));
 toolBox.appendChild(small);
 pre.appendChild(highlightCode);
 pre.appendChild(toolBox);
+
+const seeButton = document.createElement("button") as HTMLButtonElement;
+seeButton.classList.add(
+  "rounded-br-md",
+  "px-2",
+  "py-1",
+  "bg-black/30",
+  "uppercase",
+  "font-bold",
+  "text-xs",
+  "text-stone-50",
+  "see-button"
+);
+
+seeButton.innerHTML = "See code";
+seeButton.addEventListener("click", () => {
+  codeBox.classList.toggle("z-10");
+  seeButton.innerText = codeBox.classList.contains("z-10")
+    ? "Hide code"
+    : "See code";
+});
+toolBox.appendChild(seeButton);
