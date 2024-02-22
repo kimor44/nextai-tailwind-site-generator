@@ -1,10 +1,10 @@
-import { appendCopyButton } from "./lib/highlightjs/appendCopyButton";
 import { createUpdateIframe } from "./lib/iframe/createUpdateIframe";
 import { renderMessages } from "./lib/chat/renderMessages";
 import { chatCompletion } from "./lib/openAi/chatCompletion";
 import { buildOpenaiKey } from "./lib/chat/buildOpenaiKey";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { promptSystem } from "./lib/openAi/promptSystem";
+import { updateRevealCodeButton } from "./lib/highlightjs/updateRevealCodeButton";
 
 const input = document.querySelector("#generator") as HTMLInputElement;
 let messages: ChatCompletionMessageParam[] = [
@@ -14,7 +14,12 @@ const fieldSet = document.querySelector(
   "#generator-wrapper"
 ) as HTMLFieldSetElement;
 
+const revealButton = document.getElementById(
+  "reveal-code"
+) as HTMLButtonElement;
+
 input.addEventListener("submit", async (event) => {
+  revealButton.disabled = true;
   event.preventDefault();
 
   if (fieldSet.disabled) return;
@@ -51,6 +56,5 @@ input.addEventListener("submit", async (event) => {
     code += newChunk;
     onNewChunk(code);
   }
-
-  appendCopyButton(code);
+  updateRevealCodeButton(code);
 });

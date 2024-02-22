@@ -1,5 +1,7 @@
 // Code Highlighting Elements
-export const codeBox = document.querySelector(".code-box") as HTMLElement;
+export const codeBox = document.querySelector(
+  ".code-box-dialog"
+) as HTMLElement;
 
 // Pre tag building to insert the highlight code & toolBox
 export const pre = document.createElement("pre") as HTMLPreElement;

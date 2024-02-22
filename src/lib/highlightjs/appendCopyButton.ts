@@ -1,9 +1,11 @@
 import { toolBox } from "./codeElements";
 
 export const appendCopyButton = (finalCode: string) => {
-  const button = document.querySelector(".copy-button");
+  const button = document.getElementById("copy-button") as HTMLButtonElement;
 
-  if (button) return;
+  if (button) {
+    button.remove();
+  }
 
   const copyButton = document.createElement("button") as HTMLButtonElement;
   copyButton.classList.add(
@@ -20,17 +22,22 @@ export const appendCopyButton = (finalCode: string) => {
 
   copyButton.innerHTML = "Copy";
 
-  copyButton.addEventListener("click", function () {
+  copyButton.addEventListener("click", () => {
     copyButton.innerText = "Copying..";
 
     navigator.clipboard.writeText(finalCode);
 
     copyButton.innerText = "Copied!";
 
-    setTimeout(function () {
+    setTimeout(() => {
       copyButton.innerText = "Copy";
     }, 1000);
   });
 
   toolBox.prepend(copyButton);
+
+  const buttons = document.getElementsByClassName("copy-button");
+  while (buttons.length > 1) {
+    buttons[buttons.length - 1].remove();
+  }
 };
