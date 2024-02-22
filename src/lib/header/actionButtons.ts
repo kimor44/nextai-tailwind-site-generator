@@ -1,5 +1,5 @@
-import { hideForm } from "./hideForm";
-import { resetChat } from "./resetChat";
+import { hideForm } from "../../features/header/hideForm";
+import { resetChat } from "../../features/header/resetChat";
 
 export const actionButtons = () => {
   const actionBox = document.getElementById("actions-box") as HTMLElement;
