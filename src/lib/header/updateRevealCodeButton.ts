@@ -1,5 +1,5 @@
-import { appendCopyButton } from "./appendCopyButton";
-import { updateCodeHighlight } from "./updateCodeHighlight";
+import { appendCopyButton } from "../highlightjs/appendCopyButton";
+import { updateCodeHighlight } from "../highlightjs/updateCodeHighlight";
 
 export const updateRevealCodeButton = (finalCode: string) => {
   const reavealCodeButton = document.getElementById(

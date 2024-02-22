@@ -4,7 +4,7 @@ import { chatCompletion } from "./lib/openAi/chatCompletion";
 import { buildOpenaiKey } from "./lib/openAi/buildOpenaiKey";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { promptSystem } from "./lib/openAi/promptSystem";
-import { updateRevealCodeButton } from "./lib/highlightjs/updateRevealCodeButton";
+import { updateRevealCodeButton } from "./lib/header/updateRevealCodeButton";
 import { actionButtons } from "./lib/header/actionButtons";
 
 const input = document.querySelector("#generator") as HTMLInputElement;
