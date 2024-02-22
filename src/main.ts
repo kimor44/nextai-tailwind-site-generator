@@ -31,6 +31,8 @@ input.addEventListener("submit", async (event) => {
 
   const prompt = formData.get("generator__textarea") as string;
 
+  if (!prompt) return;
+
   messages.push({ role: "user", content: prompt });
 
   renderMessages(messages);

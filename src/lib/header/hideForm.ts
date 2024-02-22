@@ -21,6 +21,8 @@ export const hideForm = () => {
     "generator-wrapper"
   ) as HTMLFormElement;
   hideFormButton.addEventListener("click", () => {
+    const text = hideFormButton.innerText;
+    hideFormButton.innerText = text === "Hide form" ? "Show form" : "Hide form";
     fieldset.classList.toggle("hidden");
   });
 

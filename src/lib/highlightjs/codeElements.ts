@@ -26,26 +26,9 @@ highlightCode.classList.add("hljs");
 export const toolBox = document.createElement("div") as HTMLElement;
 toolBox.classList.add("flex", "absolute", "top-0", "right-0", "gap-2");
 
-// Small tag building to display the language
-const small = document.createElement("small") as HTMLElement;
-small.classList.add(
-  "rounded-bl-md",
-  "px-2",
-  "py-1",
-  "bg-black/30",
-  "uppercase",
-  "font-bold",
-  "text-xs",
-  "text-stone-50"
-);
 const span = document.createElement("span") as HTMLElement;
 span.classList.add("sr-only");
 span.innerText = "Language:";
-small.appendChild(span);
-small.appendChild(document.createTextNode("HTML"));
-
-// Append small tag to toolBox
-toolBox.appendChild(small);
 
 // Append highlightCode & toolbox to pre parent
 pre.appendChild(highlightCode);
