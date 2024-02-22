@@ -5,7 +5,7 @@ import { buildOpenaiKey } from "./lib/chat/buildOpenaiKey";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { promptSystem } from "./lib/openAi/promptSystem";
 import { updateRevealCodeButton } from "./lib/highlightjs/updateRevealCodeButton";
-import { hideForm } from "./lib/header/hideForm";
+import { actionButtons } from "./lib/header/actionButtons";
 
 const input = document.querySelector("#generator") as HTMLInputElement;
 let messages: ChatCompletionMessageParam[] = [
@@ -18,8 +18,6 @@ const fieldSet = document.querySelector(
 const revealButton = document.getElementById(
   "reveal-code"
 ) as HTMLButtonElement;
-
-hideForm();
 
 input.addEventListener("submit", async (event) => {
   revealButton.disabled = true;
@@ -60,4 +58,5 @@ input.addEventListener("submit", async (event) => {
     onNewChunk(code);
   }
   updateRevealCodeButton(code);
+  actionButtons();
 });
