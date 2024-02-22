@@ -1,7 +1,7 @@
 import { createUpdateIframe } from "./lib/iframe/createUpdateIframe";
-import { renderMessages } from "./lib/chat/renderMessages";
+import { renderMessages } from "./features/chat/renderMessages";
 import { chatCompletion } from "./lib/openAi/chatCompletion";
-import { buildOpenaiKey } from "./lib/chat/buildOpenaiKey";
+import { buildOpenaiKey } from "./lib/openAi/buildOpenaiKey";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { promptSystem } from "./lib/openAi/promptSystem";
 import { updateRevealCodeButton } from "./lib/highlightjs/updateRevealCodeButton";
@@ -20,8 +20,9 @@ const revealButton = document.getElementById(
 ) as HTMLButtonElement;
 
 input.addEventListener("submit", async (event) => {
-  revealButton.disabled = true;
   event.preventDefault();
+
+  revealButton.disabled = true;
 
   if (fieldSet.disabled) return;
 

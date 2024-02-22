@@ -1,5 +1,5 @@
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
-import { openai } from "./openAiKey";
+import { openai } from "./openai";
 
 export const chatCompletion = async (
   key: string,

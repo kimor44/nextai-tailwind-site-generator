@@ -1,5 +1,5 @@
 import { getOpenaiKey } from "./getOpenaiKey";
-import { promptOpenaiKey } from "./prompOpenaiKey";
+import { promptOpenaiKey } from "../../features/openai/prompOpenaiKey";
 
 export const buildOpenaiKey = () => {
   let apiKey = getOpenaiKey();
