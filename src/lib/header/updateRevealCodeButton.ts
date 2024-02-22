@@ -1,5 +1,5 @@
-import { appendCopyButton } from "../highlightjs/appendCopyButton";
-import { updateCodeHighlight } from "../highlightjs/updateCodeHighlight";
+import { appendCopyButton } from "../dialogModal/appendCopyButton";
+import { updateCodeHighlight } from "../dialogModal/updateCodeHighlight";
 
 export const updateRevealCodeButton = (finalCode: string) => {
   const reavealCodeButton = document.getElementById(
