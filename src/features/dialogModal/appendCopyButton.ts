@@ -1,4 +1,4 @@
-import { toolBox } from "./codeElements";
+import { toolBox } from "../../lib/dialogModal/codeElements";
 
 export const appendCopyButton = (finalCode: string) => {
   const button = document.getElementById("copy-button") as HTMLButtonElement;
