@@ -1,4 +1,4 @@
-import { updateIframe } from "./updateIframe";
+import { updateIframe } from "../../features/iframe/updateIframe";
 
 export const createUpdateIframe = () => {
   let date = Date.now();
