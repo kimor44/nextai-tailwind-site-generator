@@ -9,18 +9,15 @@ export const appendCopyButton = (finalCode: string) => {
 
   const copyButton = document.createElement("button") as HTMLButtonElement;
   copyButton.classList.add(
-    "rounded-bl-md",
     "px-2",
     "py-1",
-    "bg-black/30",
-    "uppercase",
-    "font-bold",
+    "bg-stone-800",
+    "text-white/40",
     "text-xs",
-    "text-stone-50",
     "copy-button"
   );
 
-  copyButton.innerHTML = "Copy";
+  copyButton.innerHTML = "Copy code";
 
   copyButton.addEventListener("click", () => {
     copyButton.innerText = "Copying..";
@@ -30,11 +27,11 @@ export const appendCopyButton = (finalCode: string) => {
     copyButton.innerText = "Copied!";
 
     setTimeout(() => {
-      copyButton.innerText = "Copy";
+      copyButton.innerText = "Copy code";
     }, 1000);
   });
 
-  toolBox.prepend(copyButton);
+  toolBox.appendChild(copyButton);
 
   const buttons = document.getElementsByClassName("copy-button");
   while (buttons.length > 1) {

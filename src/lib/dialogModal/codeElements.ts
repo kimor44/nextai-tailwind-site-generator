@@ -15,7 +15,7 @@ pre.classList.add(
   "tab-size",
   "h-full",
   "bg-[#0d1117]",
-  "pt-4"
+  "pt-6"
 );
 
 // Highlight code building to insert in the pre tag
@@ -24,11 +24,29 @@ highlightCode.classList.add("hljs");
 
 // ToolBox building to append small and seeButton and insert in the pre tag
 export const toolBox = document.createElement("div") as HTMLElement;
-toolBox.classList.add("flex", "absolute", "top-0", "right-0", "gap-2");
+toolBox.id = "tool-box";
+toolBox.classList.add(
+  "flex",
+  "justify-between",
+  "absolute",
+  "bg-stone-800",
+  "top-0",
+  "w-full"
+);
 
+// Span building for language information to append in the toolbox
 const span = document.createElement("span") as HTMLElement;
-span.classList.add("sr-only");
-span.innerText = "Language:";
+span.classList.add(
+  "px-2",
+  "py-1",
+  "text-white/40",
+  "bg-stone-800",
+  "uppercase"
+);
+span.innerText = "html";
+
+// Append span to toolbox
+toolBox.appendChild(span);
 
 // Append highlightCode & toolbox to pre parent
 pre.appendChild(highlightCode);
