@@ -1,7 +1,7 @@
 import { TType } from "./button";
 
 export const BUTTON_CLASSES: { [key in TType]: string[] } = {
-  header: [
+  action: [
     "bg-gray-800",
     "disabled:bg-gray-600",
     "text-white",

@@ -5,7 +5,7 @@ export const resetChat = () => {
   if (oldResetChatButton) return oldResetChatButton;
 
   const resetChatButton = new Button();
-  resetChatButton.addClassType("header");
+  resetChatButton.addClassType("action");
   resetChatButton.addText("Reset chat");
   resetChatButton.addNewEventListener("click", () => {
     location.reload();

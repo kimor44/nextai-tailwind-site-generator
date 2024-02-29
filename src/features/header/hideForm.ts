@@ -5,7 +5,7 @@ export const hideForm = () => {
   if (oldHideFormButton) return oldHideFormButton;
 
   const hideFormButton = new Button();
-  hideFormButton.addClassType("header");
+  hideFormButton.addClassType("action");
   hideFormButton.addText("hide form");
   hideFormButton.addId("hide-form");
   hideFormButton.addNewEventListener("click", () => {

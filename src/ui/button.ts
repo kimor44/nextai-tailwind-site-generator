@@ -1,6 +1,6 @@
 import { BUTTON_CLASSES } from "./buttonClasses";
 
-export type TType = "header";
+export type TType = "action";
 
 export class Button extends EventTarget {
   element: HTMLButtonElement;
