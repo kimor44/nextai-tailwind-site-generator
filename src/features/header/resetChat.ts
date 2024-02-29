@@ -1,20 +1,16 @@
+import { Button } from "../../ui/button";
+
 export const resetChat = () => {
   const oldResetChatButton = document.getElementById("reset-chat");
   if (oldResetChatButton) return oldResetChatButton;
 
-  const resetChatButton = document.createElement("button");
-  resetChatButton.id = "reset-chat";
-  resetChatButton.innerText = "Reset chat";
-  resetChatButton.classList.add(
-    "bg-black",
-    "text-white",
-    "font-bold",
-    "py-2",
-    "px-4",
-    "rounded"
-  );
-  resetChatButton.addEventListener("click", () => {
+  const resetChatButton = new Button();
+  resetChatButton.addClassType("header");
+  resetChatButton.addText("Reset chat");
+  resetChatButton.addNewEventListener("click", () => {
     location.reload();
   });
-  return resetChatButton;
+  resetChatButton.addId("reset-chat");
+
+  return resetChatButton.render();
 };

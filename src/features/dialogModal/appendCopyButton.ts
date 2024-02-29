@@ -1,13 +1,13 @@
 import { toolBox } from "../../lib/dialogModal/codeElements";
 
 export const appendCopyButton = (finalCode: string) => {
-  const button = document.getElementById("copy-button") as HTMLButtonElement;
-
-  if (button) {
-    button.remove();
+  const buttons = document.getElementsByClassName("copy-button");
+  while (buttons.length) {
+    buttons[0].remove();
   }
 
   const copyButton = document.createElement("button") as HTMLButtonElement;
+  copyButton.id = "copy-button";
   copyButton.classList.add(
     "px-2",
     "py-1",
@@ -32,9 +32,4 @@ export const appendCopyButton = (finalCode: string) => {
   });
 
   toolBox.appendChild(copyButton);
-
-  const buttons = document.getElementsByClassName("copy-button");
-  while (buttons.length > 1) {
-    buttons[buttons.length - 1].remove();
-  }
 };
