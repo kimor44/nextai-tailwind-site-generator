@@ -11,6 +11,8 @@ export const BUTTON_CLASSES: { [key in TType]: string[] } = {
     "py-2",
     "px-4",
     "rounded",
+    "transition-all",
+    "hover:bg-gray-950",
   ],
   copy: [
     "px-2",

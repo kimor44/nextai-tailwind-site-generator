@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/logo_rocket_tailwind_generator.png"
+    />
     <link rel="stylesheet" href="./src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tailwind Generator site</title>
@@ -10,11 +14,15 @@
   <body class="bg-slate-50">
     <div id="app" class="flex flex-col justify-start">
       <div class="bg-white shadow-md flex justify-center h-screen-1/10">
-        <div
+        <header
           id="header"
           class="p-4 flex justify-between items-center container"
         >
-          <h1 class="text-xl">Tailwind site generator</h1>
+          <img
+            src="/rocket_tailwind_generator-transparent.png"
+            alt="Placeholder Image"
+            class="h-screen-1/10"
+          />
           <nav id="actions-box" class="actions flex gap-4">
             <button
               id="reveal-code"
@@ -25,7 +33,7 @@
               Reveal code
             </button>
           </nav>
-        </div>
+        </header>
       </div>
       <div class="h-screen-9/10">
         <iframe
@@ -53,7 +61,7 @@
       <div class="container-form fixed inset-x-0 bottom-4 flex justify-center">
         <fieldset
           id="generator-wrapper"
-          class="bg-slate-300 rounded-xl p-2 disabled:bg-slate-600 disabled:text-white"
+          class="bg-slate-300 rounded-xl p-2 disabled:bg-slate-400 disabled:text-white"
         >
           <ul id="openai-chat" class="max-h-[150px] overflow-scroll"></ul>
           <form
@@ -71,7 +79,7 @@
             ></textarea>
 
             <button
-              class="generator__submit px-8 py-4 bg-blue-700 disabled:bg-blue-200 text-slate-50 disabled:text-slate-400 rounded-xl text-xl font-bold shadow-xl hover:bg-blue-800 transition-all"
+              class="generator__submit px-8 py-4 bg-gray-800 disabled:bg-gray-600 text-white disabled:text-slate-400 rounded-xl text-xl font-bold shadow-xl hover:bg-gray-950 transition-all"
               type="submit"
             >
               Generate
