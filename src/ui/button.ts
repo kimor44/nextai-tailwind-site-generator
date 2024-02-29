@@ -1,6 +1,6 @@
 import { BUTTON_CLASSES } from "./buttonClasses";
 
-export type TType = "action";
+export type TType = "action" | "copy";
 
 export class Button extends EventTarget {
   element: HTMLButtonElement;
@@ -16,7 +16,7 @@ export class Button extends EventTarget {
   }
 
   addText(text: string) {
-    this.element.innerText = text;
+    this.element.innerText += text;
   }
 
   addNewEventListener(event: string, callback: EventListener) {
@@ -25,6 +25,10 @@ export class Button extends EventTarget {
 
   addId(id: string) {
     this.element.setAttribute("id", id);
+  }
+
+  setText(text: string) {
+    this.element.innerText = text;
   }
 
   render() {

@@ -1,4 +1,5 @@
 import { toolBox } from "../../lib/dialogModal/codeElements";
+import { Button } from "../../ui/button";
 
 export const appendCopyButton = (finalCode: string) => {
   const buttons = document.getElementsByClassName("copy-button");
@@ -6,30 +7,18 @@ export const appendCopyButton = (finalCode: string) => {
     buttons[0].remove();
   }
 
-  const copyButton = document.createElement("button") as HTMLButtonElement;
-  copyButton.id = "copy-button";
-  copyButton.classList.add(
-    "px-2",
-    "py-1",
-    "bg-stone-800",
-    "text-white/40",
-    "text-xs",
-    "copy-button"
-  );
-
-  copyButton.innerHTML = "Copy code";
-
-  copyButton.addEventListener("click", () => {
-    copyButton.innerText = "Copying..";
-
+  const copyButton = new Button();
+  copyButton.addId("copy-button");
+  copyButton.addClassType("copy");
+  copyButton.addText("Copy code");
+  copyButton.addNewEventListener("click", () => {
+    copyButton.setText("Copying..");
     navigator.clipboard.writeText(finalCode);
-
-    copyButton.innerText = "Copied!";
-
+    copyButton.setText("Copied!");
     setTimeout(() => {
-      copyButton.innerText = "Copy code";
+      copyButton.setText("Copy code");
     }, 1000);
   });
 
-  toolBox.appendChild(copyButton);
+  toolBox.appendChild(copyButton.render());
 };
