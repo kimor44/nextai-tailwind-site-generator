@@ -6,6 +6,7 @@ import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { promptSystem } from "./lib/openAi/promptSystem";
 import { updateRevealCodeButton } from "./lib/header/updateRevealCodeButton";
 import { actionButtons } from "./lib/header/actionButtons";
+import { kebabButton } from "./lib/header/kebabButton";
 
 const input = document.querySelector("#generator") as HTMLInputElement;
 let messages: ChatCompletionMessageParam[] = [
@@ -18,6 +19,8 @@ const fieldSet = document.querySelector(
 const revealButton = document.getElementById(
   "reveal-code"
 ) as HTMLButtonElement;
+
+kebabButton();
 
 input.addEventListener("submit", async (event) => {
   event.preventDefault();

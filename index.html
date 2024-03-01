@@ -16,14 +16,14 @@
       <div class="bg-white shadow-md flex justify-center h-screen-1/10">
         <header
           id="header"
-          class="p-4 flex justify-between items-center container"
+          class="p-4 flex justify-between items-center container relative"
         >
           <img
             src="/rocket_tailwind_generator-transparent.png"
             alt="Placeholder Image"
             class="h-screen-1/10"
           />
-          <nav id="actions-box" class="actions flex gap-4">
+          <nav id="actions-box" class="hidden md:flex actions gap-4">
             <button
               id="reveal-code"
               class="bg-gray-800 disabled:bg-gray-600 text-white disabled:text-slate-400 disabled:cursor-not-allowed font-bold py-2 px-4 rounded"
@@ -33,6 +33,19 @@
               Reveal code
             </button>
           </nav>
+          <button
+            id="kebab-button"
+            class="md:hidden flex items-center px-3 py-2 border rounded text-gray-800 border-gray-800 hover:bg-gray-800 hover:text-white hover:border-white"
+          >
+            <svg
+              class="fill-current h-3 w-3"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
         </header>
       </div>
       <div class="h-screen-9/10">
