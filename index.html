@@ -21,7 +21,12 @@
           <img
             src="/rocket_tailwind_generator-transparent.png"
             alt="Placeholder Image"
-            class="h-screen-1/10"
+            class="hidden sm:flex h-screen-1/10"
+          />
+          <img
+            src="/logo_rocket_tailwind_generator-transparent.svg"
+            alt="Placeholder Image"
+            class="flex sm:hidden h-screen-1/10"
           />
           <nav id="actions-box" class="hidden md:flex actions gap-4">
             <button
@@ -74,25 +79,25 @@
       <div class="container-form fixed inset-x-0 bottom-4 flex justify-center">
         <fieldset
           id="generator-wrapper"
-          class="bg-slate-300 rounded-xl p-2 disabled:bg-slate-400 disabled:text-white"
+          class="bg-slate-300 rounded-xl p-2 disabled:bg-slate-400 disabled:text-white w-full sm:w-auto"
         >
           <ul id="openai-chat" class="max-h-[150px] overflow-scroll"></ul>
           <form
             id="generator"
-            class="flex flex-row justify-between place-items-center gap-7"
+            class="flex flex-col sm:flex-row justify-between place-items-center gap-2 sm:gap-7 w-full sm:w-auto"
             action="#"
           >
             <textarea
               name="generator__textarea"
               id="generator__textarea"
-              class="border-2 border-gray-300 p-2 rounded-xl resize-none text-slate-800 disabled:text-slate-400 text-xl shadow-xl hover:border-gray-400 transition-all disabled:cursor-not-allowed"
+              class="border-2 border-gray-300 p-2 rounded-xl resize-none text-slate-800 disabled:text-slate-400 text-xl shadow-xl hover:border-gray-400 transition-all disabled:cursor-not-allowed w-full sm:h-full"
               placeholder="A green button in a dark navbar"
               cols="30"
               required
             ></textarea>
 
             <button
-              class="generator__submit px-8 py-4 bg-gray-800 disabled:bg-gray-600 text-white disabled:text-slate-400 rounded-xl text-xl font-bold shadow-xl hover:bg-gray-950 transition-all"
+              class="generator__submit px-8 py-4 bg-gray-800 disabled:bg-gray-600 text-white disabled:text-slate-400 rounded-xl text-xl font-bold shadow-xl hover:bg-gray-950 transition-all w-full sm:w-auto sm:h-full"
               type="submit"
             >
               Generate
