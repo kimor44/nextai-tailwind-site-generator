@@ -1,12 +1,16 @@
 import { createUpdateIframe } from "./lib/iframe/createUpdateIframe";
 import { renderMessages } from "./features/chat/renderMessages";
-import { chatCompletion } from "./lib/openAi/chatCompletion";
+import { TChatError, chatCompletion } from "./lib/openAi/chatCompletion";
 import { buildOpenaiKey } from "./lib/openAi/buildOpenaiKey";
-import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
+import {
+  ChatCompletionChunk,
+  ChatCompletionMessageParam,
+} from "openai/resources/index.mjs";
 import { promptSystem } from "./lib/openAi/promptSystem";
 import { updateRevealCodeButton } from "./lib/header/updateRevealCodeButton";
 import { actionButtons } from "./lib/header/actionButtons";
 import { kebabButton } from "./lib/header/kebabButton";
+import { Stream } from "openai/streaming.mjs";
 
 const input = document.querySelector("#generator") as HTMLInputElement;
 let messages: ChatCompletionMessageParam[] = [
@@ -41,16 +45,25 @@ input.addEventListener("submit", async (event) => {
 
   if (!key) {
     fieldSet.disabled = false;
-    form.reset();
     return;
   }
 
   messages.push({ role: "user", content: prompt });
 
-  renderMessages(messages);
-
   fieldSet.disabled = true;
-  const chatCompletionRender = await chatCompletion(key as string, messages);
+  const chatCompletionRender: TChatError | Stream<ChatCompletionChunk> =
+    await chatCompletion(key as string, messages);
+
+  if (chatCompletionRender && "error" in chatCompletionRender) {
+    localStorage.removeItem("openai-key");
+    messages.pop();
+    alert("Please enter a valid, prepaid API key.");
+    fieldSet.disabled = false;
+
+    return;
+  }
+
+  renderMessages(messages);
   let code = "";
   const onNewChunk = createUpdateIframe();
 
