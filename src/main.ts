@@ -37,11 +37,17 @@ input.addEventListener("submit", async (event) => {
 
   if (!prompt) return;
 
+  const key = buildOpenaiKey();
+
+  if (!key) {
+    fieldSet.disabled = false;
+    form.reset();
+    return;
+  }
+
   messages.push({ role: "user", content: prompt });
 
   renderMessages(messages);
-
-  const key = buildOpenaiKey();
 
   fieldSet.disabled = true;
   const chatCompletionRender = await chatCompletion(key as string, messages);
